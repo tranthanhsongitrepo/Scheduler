@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="609b814a-c3b4-40ec-88c5-6df266b3d574" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~Speaker.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~TKB.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~nhom.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Speaker.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Speaker.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nhom.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/nhom.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nhom.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler.py" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
