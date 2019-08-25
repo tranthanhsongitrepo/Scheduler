@@ -8,6 +8,7 @@ data_nhom = pd.read_excel(nhom_fileName)
 data_TKB = pd.read_excel(tkb_fileName)
 speaker_schedule = pd.read_excel(speaker_fileName)
 mon = list(data_nhom.head(0))[1:]
+lich = speaker_schedule.copy()
 
 
 def search_class(mon, nhom):
@@ -21,7 +22,7 @@ def search_class(mon, nhom):
 def xep_lich_bt(lop):
     if lop == len(data_nhom):
         return True
-    nhom = data_nhom.iloc[lop][1:]
+    ten_lop, nhom = data_nhom.iloc[lop][0], data_nhom.iloc[lop][1:]
     for i in range(len(nhom)):
         tt = search_class(mon[i], nhom[i])
         # When is the class
@@ -35,12 +36,16 @@ def xep_lich_bt(lop):
                 # Skip if there are no speakers
                 # Else speaker found
                 # Reduce available speakers
-                (speaker_schedule.iloc[j])[data['Time']] -= 1
+                speaker_schedule.iat[j, data['Time']] -= 1
+                # Save the date
+                lich_old = lich.iat[j, data['Time']]
+                lich.iat[j, data['Time']] += ten_lop + ' '
                 # Call recursion with the next class
                 if xep_lich_bt(lop + 1):
                     return True
                 # Revert changes
-                (speaker_schedule.iloc[j])[data['Time']] += 1
+                lich.iat[j, data['Time']] = lich_old
+                speaker_schedule.iat[j, data['Time']] += 1
     return False
     # for day, speakers in (speaker_schedule[lop['Day']]):
     #     if speakers != 0:
@@ -49,8 +54,12 @@ def xep_lich_bt(lop):
 
 
 def xep_lich():
+    for i in lich.iloc[:, 1:]:
+        for j in range(len(lich.iloc[:, 1:][i])):
+            lich[i][j] = ''
     return xep_lich_bt(0)
 
 
-data_frame = pd.DataFrame()
-print(xep_lich())
+print("Xếp lịch thành công" if xep_lich() else "Xếp lịch không thành công")
+lich.to_excel('output.xlsx', index=False)
+
